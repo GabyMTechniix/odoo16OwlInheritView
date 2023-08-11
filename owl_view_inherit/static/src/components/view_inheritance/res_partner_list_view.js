@@ -11,24 +11,36 @@ export class ResPartnerListController extends ListController {
         super.setup();
         console.log("Exelent work");
 
-        this.action = useService("action")
+        this.action = useService("action")//activé l'action**
+    }
+
+    actionNothing(){
+        const notification = this.env.services.notification;
+
+        notification.add("Pour action l'action il te faut remplir this.action.doAction",{
+            type : "info",
+            title : "Pas encore d'action",
+            className : "m-5"
+        })
     }
 
     openSaleView(){
         const notification = this.env.services.notification;
 
         notification.add("OK",{
-            type : "info",
+            type : "success",
             title : "Action",
             className : "m-5"
         })
 
+        //lancer l'action**(activé l'action**)
         this.action.doAction({
             type: "ir.actions.act_window",
             name:"Customer Sales",
             res_model:"sale.order",
             views:[[false,"list"],[false,"form"]]
         })
+        //lancer l'action**(activé l'action**)
     }
 }
 

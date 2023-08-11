@@ -1,4 +1,5 @@
 ## POUR HERITÉ LA VUE DANS ODOO
+## Pour commencer on n'hésite pas à faire de recherche dans addons de odoo
 
 ## Crée un fichier js puis on a besoin d'importer (registry, listView, ListController), voici comment on fait:
     /** @odoo-module */
@@ -70,3 +71,4 @@
                 views:[[false,"list"],[false,"form"]]
             })
         }
+        > Changer avoir un autre action il juste changer le *res_model et le *name
