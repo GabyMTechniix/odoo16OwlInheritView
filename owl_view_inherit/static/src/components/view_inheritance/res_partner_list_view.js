@@ -9,7 +9,7 @@ import { useService } from "@web/core/utils/hooks";
 export class ResPartnerListController extends ListController {
     setup(){
         super.setup();
-        console.log("Exelent work");
+        console.log("List view");
 
         this.action = useService("action")//activé l'action**
     }
@@ -22,6 +22,24 @@ export class ResPartnerListController extends ListController {
             title : "Pas encore d'action",
             className : "m-5"
         })
+    }
+    openAccountMove(){
+        const notification = this.env.services.notification;
+
+        notification.add("OK",{
+            type : "success",
+            title : "Action",
+            className : "m-5"
+        })
+
+        //lancer l'action**(activé l'action**)
+        this.action.doAction({
+            type: "ir.actions.act_window",
+            name:"Account Move",
+            res_model:"account.move",
+            views:[[false,"list"],[false,"form"]]
+        })
+        //lancer l'action**(activé l'action**)
     }
 
     openSaleView(){
