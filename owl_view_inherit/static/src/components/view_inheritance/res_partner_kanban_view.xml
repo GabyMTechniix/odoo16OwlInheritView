@@ -3,7 +3,7 @@
     <t t-name="owl.RestPartnerKanbanView.Buttons" t-inherit="web.KanbanView.Buttons" owl="1">
         <xpath expr="//t[@t-if='canCreate']" position="after">
             <div class="btn-group" role="group" aria-label="Basic outlined example">
-                <button type="button" class="btn btn-outline-warning" t-on-click="openSaleView">Sale Order</button>
+                <button type="button" class="btn btn-outline-warning ms-2" t-on-click="openSaleView">Sale Order</button>
                 <button type="button" class="btn btn-success mx-2 " t-on-click="openAccountMove">Account Move</button>
                 <button type="button" class="btn btn-info border" t-on-click="actionNothing">Meeting</button>
               </div>
@@ -12,9 +12,12 @@
 
     <t t-name="owl.RespartnerKanbanTemplate" t-inherit="web.KanbanView" owl="1">
         <xpath expr="//t[@t-component='props.Renderer']" position="before">
-            <div>
-                <h2>test</h2>
+            <div class="p-3 customer_location_inherit_view_kanban">
+                <h2>Customer Location</h2>
             </div>
+        </xpath>
+        <xpath expr="//Layout" position="attributes">
+            <attribute name="className">model.useSampleModel ? 'o_view_sample_data' : '' + "d-flex"</attribute>
         </xpath>
     </t>
 </template>
