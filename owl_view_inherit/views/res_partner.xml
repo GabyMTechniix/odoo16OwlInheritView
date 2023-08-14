@@ -7,10 +7,21 @@
             <field name="inherit_id" ref="base.view_partner_tree" />
             <field name="arch" type="xml">
                 <xpath expr="//tree" position="attributes">
-                    <attribute name="js_class">res_partner_list_view</attribute>
+                    <attribute name="js_class">res_partner_list_view_inherit</attribute>
                 </xpath>
             </field>
         </record>
+
+        <record id="res_partner_view_kanban_inherit" model="ir.ui.view">
+            <field name="name">res.partner.view.kanban.inherit.js</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.res_partner_kanban_view" />
+            <field name="arch" type="xml">
+                <xpath expr="//dfg" position="attributes">
+                    <attribute name="js_class">res_partner_kanban_view_inherit</attribute>
+                </xpath>
+            </field>
+        </record>
+
     </data>
-    
 </odoo>

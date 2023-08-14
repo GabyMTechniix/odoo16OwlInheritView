@@ -68,4 +68,4 @@ export const resPartnerListView = {
     buttonTemplate: "owl.RestPartnerListView.Buttons",//add a new button to the button template
 }
 
-registry.category('views').add('res_partner_list_view', resPartnerListView)
+registry.category('views').add('res_partner_list_view_inherit', resPartnerListView)

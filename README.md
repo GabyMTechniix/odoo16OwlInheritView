@@ -21,7 +21,7 @@
         Controller: ResPartnerListController,
     }
 
-    registry.category('views').add('res_partner_list_view', resPartnerListView)
+    registry.category('views').add('res_partner_list_view_inherit', resPartnerListView)
 
 ## Puis hérité la vue list de ce model depuis le fichier /views, voici comment on fait:
     <record id="res_partner_view_inherit" model="ir.ui.view">
@@ -30,7 +30,7 @@
         <field name="inherit_id" ref="base.view_partner_tree" />
         <field name="arch" type="xml">
             <xpath expr="//tree" position="attributes">
-                <attribute name="js_class">res_partner_list_view</attribute>
+                <attribute name="js_class">res_partner_list_view_inherit</attribute>
             </xpath>
         </field>
     </record>
@@ -72,3 +72,26 @@
             })
         }
         > Changer avoir un autre action il juste changer le *res_model et le *name
+
+<!-- --------------------------------------------------------------------------------- -->
+# On va maintenant ajouter un sidebar
+    >on a besoin d'mporter: import { onWillStart } from "@odoo/owl";
+    >Essayé de mettre ce code dans le setup:
+        this.orm = useService("orm")
+        onWillStart(async ()=>{
+            this.customerLocations = await this.orm.readGroup("res.partner", [], ['state_id'], ['state_id'])
+            console.log(this.customerLocations);
+        })
+    
+    >Puis ajouter un template:
+        ResPartnerKanbanController.template = "owl.RespartnerKanbanTemplate"
+        
+# On va ajouter un template avant les listes dans la vue kanban:
+    >Pour cela nous allons avoir besoin d'inheriter la vue encore une fois:
+        <t t-name="owl.RespartnerKanbanTemplate" t-inherit="web.KanbanView" owl="1">
+            <xpath expr="//t[@t-component='props.Renderer']" position="before">
+                <div>
+                    <h2>test</h2>
+                </div>
+            </xpath>
+        </t>

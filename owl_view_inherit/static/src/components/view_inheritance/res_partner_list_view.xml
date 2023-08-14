@@ -3,7 +3,7 @@
     <t t-name="owl.RestPartnerListView.Buttons" t-inherit="web.ListView.Buttons" owl="1">
         <xpath expr="//t[@t-if='nbTotal and !nbSelected and activeActions.exportXlsx and isExportEnable and !env.isSmall']" position="after">
             <div class="btn-group" role="group" aria-label="Basic outlined example">
-                <button type="button" class="btn btn-outline-warning" t-on-click="openSaleView">Sale Order</button>
+                <button type="button" class="btn btn-outline-warning ms-1" t-on-click="openSaleView">Sale Order</button>
                 <button type="button" class="btn btn-success mx-2 " t-on-click="openAccountMove">Account Move</button>
                 <button type="button" class="btn btn-info border" t-on-click="actionNothing">Meeting</button>
               </div>
